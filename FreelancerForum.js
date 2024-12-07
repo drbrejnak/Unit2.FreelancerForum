@@ -62,6 +62,7 @@ const tableData = (items) => {
     });
   }
 
+
 tableData(initialFreelancers);
 
 const insertTableData = (items) => {
@@ -79,5 +80,6 @@ const insertTableData = (items) => {
         }, 5000 * index);
     });
   }
+
 
 insertTableData(freelancers);
