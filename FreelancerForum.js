@@ -10,29 +10,12 @@ const average = () => {
       prices.push(parseFloat(price.textContent))
   });
   const avg = Math.round(prices.reduce((acc,el) => (acc+el),0)/prices.length)
-  return avg
+  return document.getElementById("avg").innerHTML = `The average starting price is ${avg}`
 }
 
 const observer = new MutationObserver(average);
 
 observer.observe(targetNode, config);
-
-document.body.onload = addElement;
-
-function addElement() {
-  // create a new div element
-  const newDiv = document.createElement("p");
-  // and give it some content
-  const newContent = document.createTextNode("The average starting price is ");
-  const newAvg = document.createTextNode(observer);
-  // add the text node to the newly created div
-  newDiv.appendChild(newContent);
-  newDiv.appendChild(newAvg)
-  // add the newly created element and its content into the DOM
-  const currentDiv = document.getElementById("table-title");
-  const parentDiv = currentDiv.parentNode
-  parentDiv.insertBefore(newDiv, currentDiv);
-}
 
 const initialFreelancers = [
     { name: "Dr. Slice", price: 25, occupation: "gardener" },
